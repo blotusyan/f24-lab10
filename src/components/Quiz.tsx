@@ -4,8 +4,8 @@ import QuizCore from '../core/QuizCore';
 import QuizQuestion from '../core/QuizQuestion';
 
 const Quiz: React.FC = () => {
-  // Instantiate QuizCore to manage quiz logic.
-  const quizCore = new QuizCore();
+  // Use a single instance of QuizCore for the entire component lifecycle.
+  const [quizCore] = useState(new QuizCore());
 
   // Initial state derived from QuizCore
   const [currentQuestion, setCurrentQuestion] = useState<QuizQuestion | null>(quizCore.getCurrentQuestion());
